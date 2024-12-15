@@ -27,7 +27,7 @@ def home():
     try:
         crawls = [{"dd":"dd"}]
 
-        crawls.append(hangang)
+        crawls.append(hangang())
 
         return jsonify(crawls), 200
     
