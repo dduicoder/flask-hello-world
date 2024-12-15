@@ -1,10 +1,24 @@
 from flask import Flask, jsonify
 
 
-import hangang
+import requests
+from bs4 import BeautifulSoup
+
+def hangang():
+    url = "https://hangang.life/"
+
+    response = requests.get(url)
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    results = soup.find_all('div', {"class": "fullscreen"})
+
+    return {"name": "hangang", "value":results[0].find("span").string.split("|")[1].strip(), "template": "show",}
+
+# import hangang
 # import clorox
 
-crawl_list = [hangang]
+# crawl_list = [hangang]
 
 app = Flask(__name__)
 
@@ -13,8 +27,7 @@ def home():
     try:
         crawls = [{"dd":"dd"}]
 
-        for crawl_module in crawl_list:
-            crawls.append(crawl_module.crawl())
+        crawls.append(hangang)
 
         return jsonify(crawls), 200
     
