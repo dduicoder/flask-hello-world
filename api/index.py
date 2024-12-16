@@ -42,8 +42,8 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     try:
-        now = datetime.datetime.now()
-        crawls = [{"template": "clock","date": now.strftime("%y/%m/%d (%a)"), "time": now.strftime("%H:%M")}]
+        now = datetime.datetime.now() + datetime.timedelta(hours=9)
+        crawls = [{"template": "clock","date": now.strftime("%y/%m/%d(%a)"), "time": now.strftime("%H:%M")}]
 
         crawls.append(hangang())
         crawls.append(clorox())
