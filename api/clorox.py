@@ -16,7 +16,12 @@ def crawl():
 
     results = soup.find_all('em')
     print(results)
-    return {"name": "clorox", "value": "350 KRW/100mL", "template": "show",}
+    return {
+		"template": "big-number",
+		"number": "1300",
+		"unit": "원/100mL",
+		"image": "clorox"
+	}
 
 if __name__ == "__main__":
     print(crawl())
