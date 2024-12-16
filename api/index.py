@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 from fake_useragent import UserAgent
 import requests
 from bs4 import BeautifulSoup
+import datetime
 
 def hangang():
     url = "https://hangang.life/"
@@ -41,7 +42,8 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     try:
-        crawls = [{"template": "clock"}]
+        now = datetime.datetime.now()
+        crawls = [{"template": "clock","date": now.strftime("%y/%m/%d (%a)"), "time": now.strftime("%H:%M")}]
 
         crawls.append(hangang())
         crawls.append(clorox())
