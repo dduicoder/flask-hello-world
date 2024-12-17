@@ -63,7 +63,7 @@ def weather():
         "Min_Temp: 5.3"
       ],
       "image": "thermo"
-   },
+   }
 
 app = Flask(__name__)
 
@@ -75,6 +75,7 @@ def home():
 
         crawls.append(hangang())
         crawls.append(clorox())
+        print(weather())
         crawls.append(weather())
 
         return jsonify(crawls), 200
