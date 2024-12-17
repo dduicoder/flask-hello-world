@@ -4,8 +4,8 @@ from flask import Flask, jsonify
 # from bs4 import BeautifulSoup
 import datetime
 
-import hangang
-import clorox
+from . import hangang
+from . import clorox
 
 app = Flask(__name__)
 
