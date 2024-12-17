@@ -50,11 +50,17 @@ def clorox():
 def weather():
     return  {
       "template": "4row",
+      "unit": [
+        "\u00b0C",
+        "%",
+        "\u00b0C",
+        "\u00b0C",
+      ],
       "row": [
-         "Temp: 10.1\u00b0C",
-         "Humidity: 79.2%",
-         "Max Temp: 12.6\u00b0C",
-         "Min_Temp: 5.3\u00b0C"
+        "Temp: 10.1",
+        "Humidity: 79.2",
+        "Max Temp: 12.6",
+        "Min_Temp: 5.3"
       ],
       "image": "thermo"
    },
