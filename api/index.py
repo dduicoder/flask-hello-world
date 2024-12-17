@@ -47,6 +47,18 @@ def clorox():
             "image": "clorox"
         }
 
+def weather():
+    return  {
+      "template": "4row",
+      "row": [
+         "Temp: 10.1\u00b0C",
+         "Humidity: 79.2%",
+         "Max Temp: 12.6\u00b0C",
+         "Min_Temp: 5.3\u00b0C"
+      ],
+      "image": "thermo"
+   },
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -57,6 +69,7 @@ def home():
 
         crawls.append(hangang())
         crawls.append(clorox())
+        crawls.append(weather())
 
         return jsonify(crawls), 200
     
